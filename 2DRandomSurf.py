@@ -38,9 +38,9 @@ def random_surface_fully_vec(beta, x, t, velocity, depth, lM, lm):
   gw1 = turb + np.sqrt((g + surface_tension/density*Kx**2)*Kx*np.tanh(Kx*depth))
   gw2 = turb - np.sqrt((g + surface_tension/density*Kx**2)*Kx*np.tanh(Kx*depth))
 
-  rand1 = np.tile(np.random.randn(A.shape[1]),[A.shape[0],1])
-  rand2 = np.tile(np.random.randn(A.shape[1]),[A.shape[0],1])
-  rand3 = np.tile(np.random.randn(A.shape[1]),[A.shape[0],1])
+  rand1 = np.tile(A.shape[1]) + 1j*np.random.randn(A.shape[1]),[A.shape[0],1])
+  rand2 = np.tile(A.shape[1]) + 1j*np.random.randn(A.shape[1]),[A.shape[0],1])
+  rand3 = np.tile(A.shape[1]) + 1j*np.random.randn(A.shape[1]),[A.shape[0],1])
 
   spec1 = np.fft.ifftshift(rand1 * A * np.exp(-1j * turb * t))
  
